@@ -99,19 +99,7 @@ namespace ParlerFollow
         private void btn_Login_Click(object sender, EventArgs e)
         {
             ChromeDriverService driverService = null;
-            if (chromeVersion.Contains("86."))
-            {
-                driverService = ChromeDriverService.CreateDefaultService(appPath + "\\chrome86\\");
-            }
-            else if (chromeVersion.Contains("87."))
-            {
-                driverService = ChromeDriverService.CreateDefaultService(appPath + "\\chrome87\\");
-            }
-            else
-            {
-                MessageBox.Show("Please Update your Chrome version to 86.x or 87.x");
-                return;
-            }
+            driverService = ChromeDriverService.CreateDefaultService(appPath);
 
             if (string.IsNullOrEmpty(txt_Useremail.Text) || string.IsNullOrEmpty(txt_Password.Text))
             {
